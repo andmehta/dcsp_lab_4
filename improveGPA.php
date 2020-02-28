@@ -12,13 +12,21 @@
 
 <body>
     <h1>GPA Improvement Calculator</h1>
+    <?php
+      $nameErr = $emailErr = $genderErr = $websiteErr = "";
+      $name = $email = $gender = $comment = $website = "";
 
+      if (empty($_POST["name"])) {
+      $nameErr = "Name is required";
+      } else {
+      $name = test_input($_POST["name"]);
+      }
+    ?>
     <p><span class="error">All form fields must be completed for the GPA calculator to function.</span></p>
-
     <form method="post" action="improveGPA.php">
-        
+
         Name: <input type="text" size="35" name="name" value="">
-        <span class="error"></span>
+        <span class="error"><?php echo $nameErr;?></span>
         <br><br>
 
         E-mail: <input type="text" size="35" name="email" value="">
