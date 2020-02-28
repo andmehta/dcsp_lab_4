@@ -38,19 +38,23 @@
         $nameErr = "Your name must consist of letters and white space";
       }
 
-      //bug here. email doesn't work right. Does not trip error when submit is empty
+      //This needs to not trip on original view of the site.
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Invalid email format";
       }
 
+      //This needs to not trip on original view of the site.
       if (!isset($_POST['agree']) ) {
         $agreeErr = "You must agree to the terms and conditions";
       }
 
+
       if (floatval($_POST["currentGPA"]) < 0 || floatval($_POST["currentGPA"]) > 4.0) {
           $gpaErr = "Your current GPA must be a number between 0.0 and 4.0";
       }
-      if (empty($_POST["currentCredits"])) {
+
+      //
+      if ($_POST["currentCredits"] < 0) {
         $creditsErr = "Your current number of credits must be a positive integer";
       }
 
