@@ -13,7 +13,7 @@
 <body>
     <h1>GPA Improvement Calculator</h1>
     <?php
-      //initialize necessary variables
+      //initialize necessary variables fix
       $nameErr = $emailErr = $agreeErr = $gpaErr = $creditsErr = $newErr = $increaseErr = "";
       $name = $email = $agree = $gpa = $credits = $new = $increase = "";
 
