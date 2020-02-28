@@ -38,29 +38,31 @@
         $nameErr = "Your name must consist of letters and white space";
       }
 
+      //bug here. email doesn't work right. Does not trip error when submit is empty
       if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Invalid email format";
       }
 
-
-      if (!isset($_POST['agree'])) {
+      if (!isset($_POST['agree']) ) {
         $agreeErr = "You must agree to the terms and conditions";
       }
 
-      if ($_POST["gpa"] < 0 || $_POST["gpa"] > 4.0) {
+      if (floatval($_POST["currentGPA"]) < 0 || floatval($_POST["currentGPA"]) > 4.0) {
           $gpaErr = "Your current GPA must be a number between 0.0 and 4.0";
       }
-      if ($_POST["credits"]) {
+      if (empty($_POST["currentCredits"])) {
         $creditsErr = "Your current number of credits must be a positive integer";
       }
 
-      if (empty($_POST["new"])) {
+      if (empty($_POST["newCredits"])) {
         $newErr = "(the number of credits this semester an integer greater than 0)";
       }
 
-      if (empty($_POST["increase"])) {
+      if (empty($_POST["GPAincrease"])) {
         $increaseErr = "(your desired GPA increase must be a positive value)";
       }
+
+      $visited = True;
     ?>
     <p><span class="error">All form fields must be completed for the GPA calculator to function.</span></p>
     <form method="post" action="improveGPA.php">
@@ -78,7 +80,7 @@
         <span class="error"><?php echo $agreeErr;?></span>
         <br><br>
 
-        Current GPA: <input type="text" size="4" name="currentGPA" value="">
+        Current GPA: <input type="text" size="4" name="currentGPA" value="<?php $gpa?>">
         <span class="error"><?php echo $gpaErr;?></span>
         <br><br>
 
