@@ -15,31 +15,17 @@
     <?php
       //initialize necessary variables fix
       $nameErr = $emailErr = $agreeErr = $gpaErr = $creditsErr = $newErr = $increaseErr = "";
-      $name = $email = $agree = $gpa = $credits = $new = $increase = "";
-
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $name = test_input($_POST["name"]);
-      $email = test_input($_POST["email"]);
-      $website = test_input($_POST["website"]);
-      $comment = test_input($_POST["comment"]);
-      $gender = test_input($_POST["gender"]);
-      }
-
-      //function to secure no funny stuff in my input
-       function test_input($data) {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-      return $data;
-      }
+      $name = $agree = $credits = $new = $increase = "";
+      $gpa = 1;
+      //$email = "aaa@aaa.com";
 
       //regex gladly taken from https://www.w3schools.com/php/php_form_url_email.asp
       if   (!preg_match("/^[a-zA-Z ]*$/",$name)) {
         $nameErr = "Your name must consist of letters and white space";
       }
 
-      //This needs to not trip on original view of the site.
-      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      //Checks the email to validate it is a proper email
+      if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $emailErr = "Invalid email format";
       }
 
@@ -59,15 +45,13 @@
         $creditsErr = "Your current number of credits must be a positive integer";
       }
       // You have to take more than 0 credits a semester
-      if (empty($_POST["newCredits"])) {
+      if ($_POST["newCredits"] <= 0) {
         $newErr = "(the number of credits this semester an integer greater than 0)";
       }
 
-      if (empty($_POST["GPAincrease"])) {
+      if ($_POST["GPAincrease"] < 0) {
         $increaseErr = "(your desired GPA increase must be a positive value)";
       }
-
-      $visited = True;
     ?>
     <p><span class="error">All form fields must be completed for the GPA calculator to function.</span></p>
     <form method="post" action="improveGPA.php">
@@ -76,7 +60,7 @@
         <span class="error"><?php echo $nameErr;?></span>
         <br><br>
 
-        E-mail: <input type="text" size="35" name="email" value="">
+        E-mail: <input type="text" size="35" name="email" value="<?php $email?>">
         <span class="error"><?php echo $emailErr;?></span>
         <br><br>
 
