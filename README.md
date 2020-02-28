@@ -18,11 +18,11 @@ Lab designed for validating user input in an HTML form with php.
 | `a.com`           | err             |               |
 | `test@domain.com` | no err          |               | 
 
-### Agree
+### Agree 
 | input     | expected output | actual output |
 |-----------|-----------------|---------------|
-| checked   | no err          |               |
-| unchecked | err             |               |
+| checked   | no err          | no err        |
+| unchecked | err             | err           |
 
 ### Current GPA
 | input | expected output | actual output |
@@ -41,3 +41,19 @@ Lab designed for validating user input in an HTML form with php.
 | `0`    | no err          |               | 
 | `1`    | no err          |               |
 | `0.1`  | err             |               |
+
+### I am taking 
+| input  | expected output | actual output |
+|--------|-----------------|---------------|
+| `-0.1` | err             |               |
+| `-1`   | err             |               |
+| `0`    | no err          |               | 
+| `1`    | no err          |               |
+| `0.1`  | err             |               |
+
+### Raise my GPA
+| input  | expected output | actual output |
+|--------|-----------------|---------------|
+| `-1`   | err             |               |
+| `0`    | no err          |               | 
+| `1`    | no err          |               |
