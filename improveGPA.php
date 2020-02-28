@@ -13,8 +13,9 @@
 <body>
     <h1>GPA Improvement Calculator</h1>
     <?php
-      $nameErr = $emailErr = $genderErr = $websiteErr = "";
-      $name = $email = $gender = $comment = $website = "";
+      //initialize necessary variables fix
+      $nameErr = $emailErr = $agreeErr = $gpaErr = $creditsErr = $newErr = $increaseErr = "";
+      $name = $email = $agree = $gpa = $credits = $new = $increase = "";
 
       if (empty($_POST["name"])) {
       $nameErr = "Name is required";
