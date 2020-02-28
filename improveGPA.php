@@ -20,7 +20,7 @@
 
       // regex gladly taken from https://www.w3schools.com/php/php_form_url_email.asp
       // issues here. doesn't trigger error
-      if   (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      if   (!preg_match("/^[a-zA-Z ]*$/",$_POST['name'])) {
         $nameErr = "Your name must consist of letters and white space";
       }
 
