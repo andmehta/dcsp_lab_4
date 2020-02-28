@@ -48,16 +48,17 @@
         $agreeErr = "You must agree to the terms and conditions";
       }
 
-
+      //ensure that the inputted GPA falls between 0 and 4.0 inclusive
       if (floatval($_POST["currentGPA"]) < 0 || floatval($_POST["currentGPA"]) > 4.0) {
           $gpaErr = "Your current GPA must be a number between 0.0 and 4.0";
       }
 
-      //
-      if ($_POST["currentCredits"] < 0) {
+      //current credits must be an integer and greater than or equal to 0. Needs an extra or statement for the edge case 0
+      //found on https://www.w3schools.com/php/filter_validate_int.asp
+      if ($_POST["currentCredits"] < 0 || (!$_POST["currentCredits"] == 0 && !filter_var($_POST["currentCredits"], FILTER_VALIDATE_INT))) {
         $creditsErr = "Your current number of credits must be a positive integer";
       }
-
+      // You have to take more than 0 credits a semester
       if (empty($_POST["newCredits"])) {
         $newErr = "(the number of credits this semester an integer greater than 0)";
       }
