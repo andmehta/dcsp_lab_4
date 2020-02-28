@@ -1,6 +1,18 @@
 # dcsp_lab_4
 Lab designed for validating user input in an HTML form with php. 
 
+# Testing
+
+## input boundaries
+| input                 | Type     | Format or Range               |
+|-----------------------|----------|-------------------------------|
+| name                  | String   | only characters and spaces    |
+| E-mail Addresss       | String   | `xxx@xxx.xxx`                 |
+| Agree                 | checkbox | must be checked               | 
+| Current GPA           | float    | 0.0 - 4.0 inclusive           | 
+| Current Total Credits | integer  | `>=0`                         |  
+| Credits This Semester | integer  | `>0`                          | 
+| Desired GPA Increase  | float    | `>=0`                         | 
 ## testing tables
 
 ### Name
