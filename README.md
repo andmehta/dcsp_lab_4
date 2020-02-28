@@ -11,12 +11,12 @@ Lab designed for validating user input in an HTML form with php.
 | `qwer\`  | err             | __no err__    | 
 
 
-### Email
+### Email __TODO__ have this not err on first load
 | input             | expected output | actual output |
 |-------------------|-----------------|---------------|
-| `aaa`             | err             |               |
-| `a.com`           | err             |               |
-| `test@domain.com` | no err          |               | 
+| `aaa`             | err             | err           |
+| `a.com`           | err             | err           |
+| `test@domain.com` | no err          | no err        | 
 
 ### Agree __TODO__ have this not err on first load
 | input     | expected output | actual output |
