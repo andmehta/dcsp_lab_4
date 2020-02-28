@@ -7,18 +7,20 @@ Lab designed for validating user input in an HTML form with php.
 | input    | expected output | actual output |
 |----------|-----------------|---------------|
 | `andrew` | no err          | no err        |
-| `a!`     | err             | __no err__    |
-| `qwer\`  | err             | __no err__    | 
+| `a!`     | err             | err           |
+| `qwer\`  | err             | err           | 
 
 
-### Email __TODO__ have this not err on first load
+### Email 
+__TODO__ have this not err on first load
 | input             | expected output | actual output |
 |-------------------|-----------------|---------------|
 | `aaa`             | err             | err           |
 | `a.com`           | err             | err           |
 | `test@domain.com` | no err          | no err        | 
 
-### Agree __TODO__ have this not err on first load
+### Agree 
+__TODO__ have this not err on first load
 | input     | expected output | actual output |
 |-----------|-----------------|---------------|
 | checked   | no err          | no err        |
@@ -42,7 +44,8 @@ Lab designed for validating user input in an HTML form with php.
 | `1`    | no err          | no err        |
 | `0.1`  | err             | err           |
 
-### I am taking __TODO__ have this not err on first load
+### I am taking 
+__TODO__ have this not err on first load
 | input  | expected output | actual output |
 |--------|-----------------|---------------|
 | `-0.1` | err             | err           |
