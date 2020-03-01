@@ -15,9 +15,9 @@
     <?php
       // initialize necessary variables fix
       $nameErr = $emailErr = $agreeErr = $gpaErr = $creditsErr = $newErr = $increaseErr = "";
-      $name = $_POST['name'];
+      $name = isset($_POST['name'])  ? $_POST['name'] : NULL;
       $email = isset($_POST['email']) ? $_POST['email'] : "aaa@aaa.aaa";
-      $agree = isset($_POST['agree']) ? $_POST['agree'] : "True";
+      $agree = isset($_POST['agree']) ? $_POST['agree'] : false;
       $currentGPA = $_POST["currentGPA"];
       $currentCredits = $_POST["currentCredits"];
       $newCredits = isset($_POST['newCredits']) ? $_POST['newCredits'] : 0;
@@ -25,7 +25,7 @@
 
       // regex gladly taken from https://www.w3schools.com/php/php_form_url_email.asp
       // issues here. doesn't trigger error
-      if   (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+      if   (!preg_match("/^[a-zA-Z ]*$/",$name) || is_null($name)) {
         $nameErr = "Your name must consist of letters and white space";
       }
 
@@ -36,7 +36,7 @@
       }
 
       // This needs to not trip on original view of the site.
-      if (!isset($agree) ) {
+      if (!$agree) {
         $agreeErr = "You must agree to the terms and conditions";
       }
 
@@ -73,7 +73,7 @@
         <span class="error"><?php echo $emailErr;?></span>
         <br><br>
 
-        <input type="checkbox" name="agree">
+        <input type="checkbox" name="agree", value="true">
         I agree to the terms and conditions of this website.
         <span class="error"><?php echo $agreeErr;?></span>
         <br><br>
