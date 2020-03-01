@@ -24,7 +24,6 @@ Lab designed for validating user input in an HTML form with php.
 
 
 ### Email 
-__TODO__ have this not err on first load
 | input             | expected output | actual output |
 |-------------------|-----------------|---------------|
 | `aaa`             | err             | err           |
@@ -32,7 +31,6 @@ __TODO__ have this not err on first load
 | `test@domain.com` | no err          | no err        | 
 
 ### Agree 
-__TODO__ have this not err on first load
 | input     | expected output | actual output |
 |-----------|-----------------|---------------|
 | checked   | no err          | no err        |
@@ -57,7 +55,6 @@ __TODO__ have this not err on first load
 | `0.1`  | err             | err           |
 
 ### I am taking 
-__TODO__ have this not err on first load
 | input  | expected output | actual output |
 |--------|-----------------|---------------|
 | `-0.1` | err             | err           |
