@@ -15,16 +15,16 @@
     <?php
       // initialize necessary variables fix
       $nameErr = $emailErr = $agreeErr = $gpaErr = $creditsErr = $newErr = $increaseErr = "";
-      $name = $_POST['name']/*  ? $_POST['name'] : "a"*/;
-      $email = $_POST['email']/* ? $_POST['email'] : "aaa@aaa.aaa"*/;
-      $agree = $_POST['agree']/* ? $_POST['agree'] : true*/;
-      $currentGPA = $_POST["currentGPA"]/* ? $_POST["currentGPA"] : NULL*/;
-      $currentCredits = $_POST["currentCredits"] /*? $_POST["currentCredits"] : NULL */;
-      $newCredits = $_POST['newCredits']/* ? $_POST['newCredits'] : 1*/;
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+      $agree = $_POST['agree'];
+      $currentGPA = $_POST["currentGPA"];
+      $currentCredits = $_POST["currentCredits"];
+      $newCredits = $_POST['newCredits'];
       $GPAincrease = $_POST["GPAincrease"];
       $err = false;
 
-      function calculateGPA() {
+      function calculateGPA($newCredits, $currentCredits, $GPAincrease) {
         $currentGPAhours = $currentGPA + $currentCredits;
         $desiredGPA = $currentGPA + $GPAincrease;
         $desiredGPAhours = $desiredGPA * ($currentCredits + $newCredits);
