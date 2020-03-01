@@ -17,14 +17,14 @@
       $nameErr = $emailErr = $agreeErr = $gpaErr = $creditsErr = $newErr = $increaseErr = "";
       $name = $_POST['name'];
       $email = $_POST['email'];
-      $agree = $_POST['agree'];
+      $agree = isset($_POST['agree']) ? true : false;
       $currentGPA = $_POST["currentGPA"];
       $currentCredits = $_POST["currentCredits"];
       $newCredits = $_POST['newCredits'];
       $GPAincrease = $_POST["GPAincrease"];
       $err = false;
 
-      function calculateGPA($newCredits, $currentCredits, $GPAincrease) {
+      function calculateGPA($currentGPA, $newCredits, $currentCredits, $GPAincrease) {
         $currentGPAhours = $currentGPA + $currentCredits;
         $desiredGPA = $currentGPA + $GPAincrease;
         $desiredGPAhours = $desiredGPA * ($currentCredits + $newCredits);
@@ -113,7 +113,7 @@
         If I want to raise my GPA
         <input type="text" size="4" name="GPAincrease" value="<?php echo $GPAincrease;?>">
         <span class="error"><?php echo $increaseErr;?></span> points,
-        I need a <span style="font-weight: bold;"><?php !$err ? $val = calculateGPA($newCredits, $currentCredits, $GPAincrease) : $val = "????"; echo "$val";?></span> GPA on my courses this semester.
+        I need a <span style="font-weight: bold;"><?php !$err ? $val = calculateGPA($currentGPA, $newCredits, $currentCredits, $GPAincrease) : $val = "????"; echo "$val";?></span> GPA on my courses this semester.
         <br><br>
 
         <input type="submit" name="submitted" value="Calculate">
